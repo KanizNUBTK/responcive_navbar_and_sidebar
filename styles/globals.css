@@ -1,26 +1,186 @@
-html,
-body {
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* large device menubar design start*/
+.menu {
+  position: relative;
+}
+
+.ani-menu {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 200px;
+  transform: translateY(-3rem);
+  z-index: -1;
+  transition: all 0.3s ease 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+
+.menu:focus .ani-menu,
+.menu:focus-within .ani-menu,
+.menu:hover .ani-menu {
+  visibility: visible;
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0);
+  transition-delay: 0s, 0s, 0.3s;
+}
+
+.large-menu a {
+  color: aliceblue;
+  display: block;
+  padding: 10px 20px;
+  text-decoration: none;
+  font-family: big john;
+}
+
+.ani-menu a {
+  /* width: 70%; */
+  padding: 10px 30px;
+  font-family: roboto;
+}
+
+.menu-list a:hover {
+  background: #262626;
+}
+
+.large-menu a:hover {
+  background: crimson;
+  color: white;
+}
+
+.large-menu ul,
+.large-menu ul li {
+  list-style: none;
   padding: 0;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.large-menu>ul {
+  text-align: center;
 }
 
-* {
-  box-sizing: border-box;
+.large-menu>ul>li {
+  display: inline-block;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.large-menu>ul>li:first-child {
+  border-left: none;
 }
+
+.ani-menu {
+  background: crimson;
+}
+
+/* large device menubar design end*/
+
+/* header design start*/
+.topHeaderPage {
+  @apply fixed top-8 h-14 w-full z-40 bg-transparent shadow-2xl transition-all duration-700;
+}
+
+.topHeaderPage-bg {
+  @apply bg-black text-white top-0 transition-all duration-700;
+}
+
+/* header design end*/
+
+/* side nevigation bar design start*/
+.side-drawer {
+  height: 100%;
+  background: rgb(15, 15, 15);
+  box-shadow: 2px 0px rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 70%;
+  max-width: 400px;
+  z-index: 200;
+  /* transform: translateX(200%);
+  transition: transform 0.8s ease-out; */
+}
+
+/* .side-drawer.open {
+  transform: translateX(0);
+} */
+
+/* side bar mini menu design start */
+.side-drawer .mini-menubar {
+  padding: 20px 40px;
+}
+
+.mini-ani-menu {
+  /* display: none; */
+  visibility: hidden;
+  opacity: 0;
+  /* position: absolute; */
+  margin: 3%;
+  top: 50%;
+  left: 10;
+  width: 200px;
+  transform: translateY(3rem);
+  z-index: -1;
+  transition: all 0.3s ease 0s, visibility 0s linear 0.3s, z-index 0s linear 0.01s;
+}
+
+.mini-menu:focus .mini-ani-menu,
+.mini-menu:focus-within .mini-ani-menu,
+.mini-menu:hover .mini-ani-menu {
+  visibility: visible;
+  /* display: block; */
+  opacity: 1;
+  z-index: 1;
+  transform: translateY(0);
+  transition-delay: 0s, 0s, 0.3s;
+}
+
+
+.mini-menu{
+  margin-bottom: 1%;
+  margin-right: 10%;
+  
+}
+.mini-ani-menu{
+  border:1px solid blue;
+  background: crimson;
+}
+.sub-mini-link{
+  padding: 3%;
+  border-bottom: 1px solid rgb(131, 124, 124);
+}
+.sub-mini-link:hover {
+  background: #262626;
+}
+.mini-ani-menu .sub-mini-link a:hover {
+  background: none;
+}
+
+.mini-menu a:hover {
+  padding: 2%;
+  background: crimson;
+  color: white;
+}
+
+/* side bar menu design end */
+
+.backdrop {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(217, 214, 214, 0.3);
+  z-index: 100;
+  top: 0;
+  right: 0;
+  transform: translateX(200%);
+  transition: transform 0.4s linear;
+}
+
+.backdrop.open {
+  transform: translateX(0);
+}
+
+
+/* side nevigation bar design end*/
